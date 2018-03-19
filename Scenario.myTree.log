@@ -1,0 +1,318 @@
+1955 Routine Maintenance - SDP automation and integration
++-- CP-6541 Work order lifecycle and integration with field service system
+¦   +-- f400285 Work order reschedule
+¦   ¦   +-- s410021 Modify Work Order Schedule Dates 
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP6541_410021_3001 Error displayed if no WO selected and user attempts to reschedule
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP6541_410021_3002 WO can be selected on the list view tab of the WO tracking window
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP6541_410021_3003 SchedStart SchedFinish dates updated on a single unassigned WO
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP6541_410021_3004 SchedStart SchedFinish dates NOT updated on a single Assigned WO
+¦   ¦   +-- s410023 Bulk Update Work Order Scheduled Dates
+¦   ¦       +-- OSS_SIT_PRJ1955_CP6541_410023_3005 Can select Multi WOs on the list view tab: WO tracking window
+¦   ¦       +-- OSS_SIT_PRJ1955_CP6541_410023_3006 SchedStart SchedFinish updated on Multiple unassigned WO
+¦   ¦       +-- OSS_SIT_PRJ1955_CP6541_410023_3007 SchedStart SchedFinish NOT updated on Multi ASSIGN WOs
+¦   +-- f400286 Auto Assign work orders to the work force (send to work force)
+¦   ¦   +-- s410118 Automatically move Work Orders from Approved to Pre-Assigned/Assigned
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP6541_410118_3008 Configure the window to auto move WO from APPR to ASSIGN
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP6541_410118_3009 NBN User can view the WOs Pre_Assigned in the Start Center
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP6541_410118_3010 WWM automatically moves WO from Approved to Assigned
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP6541_410118_3011 WO moves from Approved to Pre_Assigned when Location is Invalid
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP6541_410118_3012 Manually moves WO from Pre_Assigned to Assigned with valid info
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP6541_410118_3013 Failed to move WO from Pre_Assigned to Assigned: invalid info
+¦   ¦   +-- s410120 Publish Assigned Work Orders
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP6541_410120_428422_3014 WWM publishes PM WO via Interface when status is ASSIGNED 
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP6541_410120_428422_3015 WWM publishes CM WO via Interface when status is ASSIGNED 
+¦   ¦   +-- s410122 Update Work Orders Status to Acknowledged
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP6541_410122_3016 WWM updates WO from Assigned to Acknowledged via Interface
+¦   ¦   +-- s410394 Manually change Work Orders status from Approved to Assigned
+¦   ¦       +-- OSS_SIT_PRJ1955_CP6541_410394_3017 Manually moves WO from APPR to ASSIGN with proper info populated
+¦   ¦       +-- OSS_SIT_PRJ1955_CP6541_410394_3018 Fails to move WO from APPR to ASSIGN with INVALID info populated
+¦   ¦       +-- OSS_SIT_PRJ1955_CP6541_410394_3019 Change status of existing WO from status TRIAGE to CANCELLED
+¦   ¦       +-- OSS_SIT_PRJ1955_CP6541_410394_3020 Change status of existing WO from status TRIAGE to APPR
+¦   ¦       +-- OSS_SIT_PRJ1955_CP6541_410394_3021 Associate an ad_hoc WO to an existing WO in Maximo
+¦   ¦       +-- OSS_SIT_PRJ1955_CP6541_410394_3022 Move the ad_hoc WO from WAPPR to APPR
+¦   +-- f400289 Send work order updates to work force
+¦   ¦   +-- s414402 Update workorder details via Maximo UI after approval and publish updates 
+¦   ¦       +-- OSS_SIT_PRJ1955_CP6541_414402_2001 NBN user performs updates on the WO after it has been approved
+¦   ¦       +-- OSS_SIT_PRJ1955_CP6541_414402_2002 WO in the status of Acknowledged is cancelled in Maximo
+¦   ¦       +-- OSS_SIT_PRJ1955_CP6541_414402_2003 Withdrawn WO in the status of Acknowledge
+¦   ¦       +-- OSS_SIT_PRJ1955_CP6541_414402_2004 Manually update location or asset data on a WO of ASSIGN
+¦   ¦       +-- OSS_SIT_PRJ1955_CP6541_414402_2005 Manually update location or asset data on a WO of ACK INPRG
+¦   ¦       +-- OSS_SIT_PRJ1955_CP6541_414402_2006 NBN user is not allowed to update a closed WO: Rainy Day
+¦   ¦       +-- OSS_SIT_PRJ1955_CP6541_414402_2007 IPACT update DiteAccessDetail on LOC when active WO refers it
+¦   +-- f400292 Cancellation and withdraw
+¦   ¦   +-- s410124 Cancel Work Orders via Maximo UI and Publish Updates
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP6541_410124_2008 Not publish WO when status from Waiting Approval to Cancel
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP6541_410124_2009 Not publish WO via Interface when status from Approved to Cancel
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP6541_410124_2010 Publishes WO via Interface when status from Assigned to Cancel
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP6541_410124_2011 Publishes WO via Interface when status from ACK to Cancel
+¦   ¦   +-- s410125 Withdraw and Reassign Work Orders via Maximo UI and Publish Updates 
+¦   ¦       +-- OSS_SIT_PRJ1955_CP6541_410125_2012 Publishes WO via Interface when status from ASSIGNED to Withdrawn
+¦   ¦       +-- OSS_SIT_PRJ1955_CP6541_410125_2013 Publishes WO via Interface when status from ACK to Withdrawn
+¦   ¦       +-- OSS_SIT_PRJ1955_CP6541_410125_2014 Publishes WO via Interface when status from Withdrawn to ASSIGNED
+¦   ¦       +-- OSS_SIT_PRJ1955_CP6541_410125_2015 NBN User can not change WO status from Withdrawn to Assigned
+¦   ¦       +-- OSS_SIT_PRJ1955_CP6541_410125_2016 WWM not publish WO when status from Withdrawn to Cancel
+¦   ¦       +-- OSS_SIT_PRJ1955_CP6541_410125_2017 Not publish WO via Interface when stat from Withdrawn to Approved
+¦   +-- f400295 Receive work force updates
+¦   ¦   +-- s410127 Update Work Order Information via Interface 
+¦   ¦       +-- OSS_SIT_PRJ1955_CP6541_410127_2025 WWM updates WO when it receives inputs w same status and worklog
+¦   ¦       +-- OSS_SIT_PRJ1955_CP6541_410127_2026 WWM does not update WO status to ACK when not Assigned
+¦   ¦       +-- OSS_SIT_PRJ1955_CP6541_410127_2027 WWM does not update WO status to INPRG when not ACK or Off_Site
+¦   ¦       +-- OSS_SIT_PRJ1955_CP6541_410127_2028 WWM does not update WO status to Off_Site when not INPRG
+¦   ¦       +-- OSS_SIT_PRJ1955_CP6541_410127_2029 WWM does not update WO status to Complete when not INPRG
+¦   ¦       +-- OSS_SIT_PRJ1955_CP6541_410127_2030 WWM does not update WO to COMP when Meter Reading is not provided
+¦   ¦       +-- OSS_SIT_PRJ1955_CP6541_410127_2031 WWM does not update WO to COMP when Material is not provided 
+¦   ¦       +-- OSS_SIT_PRJ1955_CP6541_410127_428424_2018 WWM updates WO from ASSIGN to ACK via Interface
+¦   ¦       +-- OSS_SIT_PRJ1955_CP6541_410127_428424_2019 WWM updates WO from ACK to INPRG via Interface
+¦   ¦       +-- OSS_SIT_PRJ1955_CP6541_410127_428424_2020 WWM updates WO from INPRG to Off_Site via Interface
+¦   ¦       +-- OSS_SIT_PRJ1955_CP6541_410127_428424_2021 WWM updates WO from Off_Site to INPRG via Interface
+¦   ¦       +-- OSS_SIT_PRJ1955_CP6541_410127_428424_2022 WWM updates WO from INPRG to COM via Interface
+¦   +-- f400332 Configure the Workforce Edge Integration Layer (PCR025)
+¦       +-- s428422 WEdge will handle WorkOrderPublish requests from WWM (PCR025)
+¦       ¦   +-- OSS_SIT_PRJ1955_CP6541_410120_428422_3014 WWM publishes PM WO via Interface when status is ASSIGNED 
+¦       ¦   +-- OSS_SIT_PRJ1955_CP6541_410120_428422_3015 WWM publishes CM WO via Interface when status is ASSIGNED 
+¦       +-- s428424 WEdge will handle WorkOrderUpdate requests from Streamline (PCR025)
+¦           +-- OSS_SIT_PRJ1955_CP6541_410127_428424_2018 WWM updates WO from ASSIGN to ACK via Interface
+¦           +-- OSS_SIT_PRJ1955_CP6541_410127_428424_2019 WWM updates WO from ACK to INPRG via Interface
+¦           +-- OSS_SIT_PRJ1955_CP6541_410127_428424_2020 WWM updates WO from INPRG to Off_Site via Interface
+¦           +-- OSS_SIT_PRJ1955_CP6541_410127_428424_2021 WWM updates WO from Off_Site to INPRG via Interface
+¦           +-- OSS_SIT_PRJ1955_CP6541_410127_428424_2022 WWM updates WO from INPRG to COM via Interface
++-- CP-7609 Automate the integration of asset information into Maximo (PNI and iPACT)
+¦   +-- f400264 Support Registration and Update of Maximo Locations (Sites)
+¦   ¦   +-- s409946 Create and Update Locations with IPACT Data 
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7609_409946_2032 WWM creates a new Location record during CURRENT operation
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7609_409946_2033 WWM updates a Location during CURRENT operation via Interface
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7609_409946_2034 WWM decommissions a Location during DELETE operation via Interface
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7609_409946_2036 Interface updates all attributes on matching WWM Location record
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7609_409946_2037 Records error when IPACT tries to delete a LOC not exist in WWM
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7609_409946_2038 Error when tries to create LOC when required attributes NOT exist
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7609_409946_2039 New LOC record created under the State when CSA is not defined
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7609_409946_2040 New LOC record created under the Country when State not defined
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7609_409946_2041 Raise exception when IPACT tries to change key attributes
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7609_409946_2042 WWM decommissions a LOC during DELETE peration via IPACT Interface
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7609_409946_2043 WWM manages the creation of LOC when SITE_ID doesnt exist
+¦   ¦   +-- s409953 Configure Fall-out Process when error occurs during batch load 
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7609_409953_2044 Interfacing failure message is displayed in the iPact Logs
+¦   ¦   +-- s413738 Create and Update Location Asset Site with IPACT Data 
+¦   ¦       +-- OSS_SIT_PRJ1955_CP7609_413738_2045 Location migrated from iPact are available as an asset in Maximo
+¦   ¦       +-- OSS_SIT_PRJ1955_CP7609_413738_2046 WWM creates an Asset during CURRENT operation via IPACT Interface
+¦   ¦       +-- OSS_SIT_PRJ1955_CP7609_413738_2047 WWM not update an Asset LOC and throws an error in staging table
+¦   ¦       +-- OSS_SIT_PRJ1955_CP7609_413738_2049 Updates all attributes on a matching WWM Asset from IPACT record
+¦   +-- f400267 Support Registration and Update of Maximo Asset Records (IPACT Equipment)
+¦   ¦   +-- s409945 Manage Asset Records from IPACT
+¦   ¦       +-- OSS_SIT_PRJ1955_CP7609_409945_2054 Udpates Site inform when an Location record is updated via IPACT
+¦   ¦       +-- OSS_SIT_PRJ1955_CP7609_409945_2055 WWM udpates Asset information when an Asset is updated via IPACT
+¦   ¦       +-- OSS_SIT_PRJ1955_CP7609_409945_2056 Fails to create update Asset when Asset Template cant be located
+¦   ¦       +-- OSS_SIT_PRJ1955_CP7609_409945_2057 Fails to create update Location when Asset Template cant be found
+¦   ¦       +-- OSS_SIT_PRJ1955_CP7609_409945_2058 WWM does not update Site information when Type changes
+¦   ¦       +-- OSS_SIT_PRJ1955_CP7609_409945_2059 WWM does not update Asset Location when Asset Site Name changes
+¦   ¦       +-- OSS_SIT_PRJ1955_CP7609_409945_2060 WWM updates Integrated Date where PM Next Due Date not changed
+¦   ¦       +-- OSS_SIT_PRJ1955_CP7609_409945_2061 Decommissions Asset during DELETE operation via IPACT Interface
+¦   ¦       +-- OSS_SIT_PRJ1955_CP7609_409945_2062 Asset NOT deleted via DELETE when EquipID not match ExternalrefID
+¦   +-- f400319 Cut-Over Strategy
+¦       +-- s409973 Load Reference Data
+¦       +-- s409980 Load Assets and associated data
+¦       ¦   +-- OSS_SIT_PRJ1955_CP7609_409980_2102 WWM udpates Asset info when Asset is updated via IPACT Interface
+¦       ¦   +-- OSS_SIT_PRJ1955_CP7609_409980_2103 Assets NOT updated for loaded Assets if NOT able to find template
+¦       ¦   +-- OSS_SIT_PRJ1955_CP7609_409980_2104 Not create Assets for loaded Sites if NOT able to find template
+¦       ¦   +-- OSS_SIT_PRJ1955_CP7609_409980_2105 WWM does not udpate Site information when Type changes
+¦       +-- s409988 Load PMs Next Due Date
+¦           +-- OSS_SIT_PRJ1955_CP7883_409988_0012_Business Provides PM Next Due Date to be loaded for Assets
+¦           +-- OSS_SIT_PRJ1955_CP7883_409988_0013_Business Provides PM Next Due Date to be loaded for Sites
+¦           +-- OSS_SIT_PRJ1955_CP7883_409988_0014_AS&M user imports the PM Next Due Dates
+¦           +-- OSS_SIT_PRJ1955_CP7883_409988_0015 DELTA load of data which covers changes to Sites and Chassis
++-- CP-7883 Routine maintenance plans and work order creation
+¦   +-- f400271 Support creation of PM regime 
+¦   ¦   +-- s410014 Manually Create Preventive Maintenance
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_410014_1001 Manually create new PM record for asset representing IPACT Site
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_410014_1002 Manually create new PM record for asset with sequenced Job Plans
+¦   ¦   +-- s410018 Automatically Create Preventive Maintenance on Asset Creation Process
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_410018_1003 PM auto_created when asset matches to Asset Template w Master PM
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_410018_1004 PM record NOT created if Asset Template NOT including a Master PM
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_410018_1005 WO and PM auto_created when Site loaded: POI
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_410018_1006 WWM loads PM Next Due when an Asset is Loaded via Data Load
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_410018_1007 WWM sets PM Next Due from Asset Integrated Date when Asset Loaded
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_410018_1008 WWM sets PM Next Due Date when an Asset is created for a Site
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_410018_1009 WWM does not populates PM Next Due Date when already set
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_410018_1010 NBN User can view all PMs wo Next Due Date in the Start Center
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_410018_1032 WO and PM auto_created when Asset loaded to WWM: OLT
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_410018_1033 WO and PM auto_created when Asset loaded to WWM: ESS7
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_410018_1034 WO and PM auto_created when Asset loaded to WWM: RMX3200
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_410018_1035 WO and PM auto_created when Asset loaded to WWM: SAS_M
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_410018_1036 WO and PM auto_created when Asset loaded to WWM: FTTN CSD
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_410018_1037 WO and PM auto_created when Asset loaded to WWM: CMTS
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_410018_1038 WO and PM auto_created when Asset loaded to WWM: FTTB CSD
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_410018_1039 WO and PM auto_created when Site loaded: FAN
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_410018_1040 WO and PM auto_created when Site loaded: FTTB_DSL1800
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_410018_1041 WO and PM auto_created when Site loaded: FTTB_DSLWALLMOUNT
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_410018_1042 WO and PM auto_created when Site loaded: FTTB_DSLWALLMOUNTLI
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_410018_1043 WO and PM auto_created when Site loaded: FTTB_DSLHEX
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_410018_1043 WO and PM auto_created when Site loaded: FTTB_MX6WALLMOUNT
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_410018_1044 WO and PM auto_created when Site loaded: FTTB_CSDWALLMOUNT
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_410018_1045 WO and PM auto_created when Site loaded: FTTB_DSLEXCHANGE
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_410018_1046 WO and PM auto_created when Site loaded: FTTB_DSLNOKIA
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_410018_1047 WO and PM auto_created when Site loaded: FTTN_DSLNOKIA
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_410018_1048 WO and PM auto_created when Site loaded: FTTN DSL COMMSCOPE
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_410018_1049 WO and PM auto_created when Site loaded: FTTN CSD PEDESTAL
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_410018_1050 WO and PM auto_created when Site loaded: SITE_TFAN
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_410018_1051 WO and PM auto_created when Site loaded: SITE_IAP
+¦   ¦   +-- s410029 Automatically Update Preventive Maintenance Status when Asset Status changes
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_410029_1011 PM records updated to Active when Asset updated to INSERVICE
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_410029_1012 WWM updates PM record to Active when Asset Updated to INTEGRATED
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_410029_1013 WWM does not update PM record to Active when PM is INACTIVE
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_410029_1014 PM record changed to Inactive when Asset Updated to DECOMISSIONED
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_410029_1015 WOs created w PM NextDueDate and Asset in INSERVC or INTEGRATED
+¦   ¦   +-- s410030 Create Routine Maintenance Work Orders based on PMs
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_410030_410034_1016 WWM automatically generates WOs based on PM specifications
+¦   ¦   +-- s410034 Configure PM Generation Crontask
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_410030_410034_1016 WWM automatically generates WOs based on PM specifications
+¦   ¦   +-- s410037 Apply Bulk Updates to PMs via Master PMs
+¦   ¦       +-- OSS_SIT_PRJ1955_CP7883_410037_1018 Change WO details in the Master PM and reflects to the PM
+¦   +-- f400276 Job Plans (Templates) and work order structure definition
+¦   ¦   +-- s409954 Configure Job Plans Application for Routine Maintenance 
+¦   ¦   +-- s409955 Configure Job Plans Materials
+¦   ¦   +-- s409957 Configure Job Plans Crafts and Skills 
+¦   ¦   +-- s409960 View and update Response Plans
+¦   ¦   +-- s409961 Manually Create and Update a Job Plan
+¦   ¦   +-- s410032 Apply Job Plan Attributes to Work Order
+¦   +-- f400278 Manage work force allocation rules
+¦   ¦   +-- s409968 Configure Work Force Allocation based on Classification, Work Type, Region, Priority 
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409970_0005_Assign multi WOs for single region class WO type but diff priority
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409970_409968_0002_Auto assign all new WOs to a Work Force group
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409970_409968_0003_Assign multi WOs to different workforces based on regions
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409970_409968_0004_Assign WOs to workforce based on classifications
+¦   ¦   +-- s409969 Default Work Force Allocation to Internal Work Force 
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409969_0001_Facilitate the association of default IWF to WO upon the creation
+¦   ¦   +-- s409970 Automatically Assign Work Order to a Work Force group on a particular Region, Work Type, Classification and Priority
+¦   ¦       +-- OSS_SIT_PRJ1955_CP7883_409970_0005_Assign multi WOs for single region class WO type but diff priority
+¦   ¦       +-- OSS_SIT_PRJ1955_CP7883_409970_409968_0002_Auto assign all new WOs to a Work Force group
+¦   ¦       +-- OSS_SIT_PRJ1955_CP7883_409970_409968_0003_Assign multi WOs to different workforces based on regions
+¦   ¦       +-- OSS_SIT_PRJ1955_CP7883_409970_409968_0004_Assign WOs to workforce based on classifications
+¦   +-- f400279 Create work order and define attributes
+¦   ¦   +-- s409971 Configure Work Order Maintenance Application and New Attributes 
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409971_2063 NBN user manually creates a WO and the work_type defaults to CM
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409971_2064 PM WO auto created based on NextDueDate,required fields populated
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409971_2099 The dates on a PM WO should be automatically populated
+¦   ¦   +-- s409972 Configure Work Order Application Advanced-Search 
+¦   ¦   +-- s409974 Default New Work Order Regime Maintenance Type on Work Order manual creation 
+¦   ¦   +-- s409975 Configure Work Order Priority Field 
+¦   ¦   +-- s409978 Configure Routine Maintenance Work Order Status Lifecycle 
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409978_2065 NBN User changes WO status from Waiting Approval to Approved
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409978_2066 NBN User changes WO status from Waiting Approval to Cancelled
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409978_2067 NBN User changes WO status from Approved to Assigned
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409978_2068 NBN User changes WO status from Approved back to Waiting Approval
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409978_2069 NBN User changes WO status from Approved to Cancel
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409978_2070 NBN User changes WO status from Assigned to Cancel
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409978_2071 NBN User changes WO status from Assigned to Withdrawn
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409978_2072 NBN User changes WO status from Acknowledged to In_Progress
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409978_2073 NBN User changes WO status from ACK to Withdrawn
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409978_2074 NBN User changes WO status from Acknowledged to Cancel
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409978_2075 NBN User changes WO status from In_Progress to Off_Site
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409978_2076 NBN User changes WO status from In_Progress to Complete
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409978_2077 NBN User changes WO status from Offsite to In_Progress
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409978_2078 NBN User changes WO status from Triaged to Complete
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409978_2079 NBN User changes WO status from Triaged to Approved
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409978_2080 NBN User changes WO status from Triaged to Cancel
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409978_2081 NBN User changes WO status from Withdrawn to Approved
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409978_2082 NBN User changes WO status from Withdrawn to Assigned
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409978_2083 NBN User changes WO status from Withdrawn to Cancel
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409978_2084 NBN User changes WO status from Assigned to ACK via UI
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409978_2085 NBN user changes WO status from OFFSITE to CAN_INFLIGHT via UI
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409978_2086 NBN User can view all the possible statuses of WO Task
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409978_2087 WO task moves to WAPPR when PM WO generated in WAPPR State
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409978_2088 WO task moves to APPR when PM WO changes to APPR
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409978_2089 WO task moves to COMP when PM WO changes to COMP
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409978_2090 WO task moves to CANCEL when PM WO changes to CANCEL
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409978_2091 WO task moves to CLOSE when PM WO changes to CLOSE
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409978_2092 WO task keeps APPR for WO ASIGN,ACK,WITHDRW,PREASIGN,OFFSITE,INPG
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409978_2093 WO task move to CAN_INFLIGHT when WO changes to CAN_INFLIGHT
+¦   ¦   +-- s409982 Routine Maintenance User can only access routine maintenance work orders 
+¦   +-- f400284 Triage non-routine work orders
+¦   ¦   +-- s409985 Review manually created Follow-on Work Orders 
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409985_0025 WPM Security group user creates the Follow_on WOs 
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409985_0026 Verify lifecycle of the manually created Follow_on WO
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409985_0027 Verify that follow_on WO is related to original WO
+¦   ¦   +-- s409990 Review automatically created Follow-on Work Orders 
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409990_0016 Manually change follow_on WO from TRIAGE to COMPLETE
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409990_0017 Manually Change follow_on WO from TRIAGE to CANCELLED
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409990_0029 Change of existing follow_on WO from TRIAGE to APPR
+¦   ¦   +-- s409994 Manually Create a new Ad-Hoc Work Order
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409994_409995_0006_Manually Create and Assign Ad_Hoc WO to Work Force
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409994_409995_0007_Associate an ad_hoc WO to an existing WO in Maximo
+¦   ¦   ¦   +-- OSS_SIT_PRJ1955_CP7883_409994_409995_0008_Move the ad_hoc WO from WAPPR to APPR
+¦   ¦   +-- s409995 Manually Assign Ad-Hoc Work Order to Work Force 
+¦   ¦       +-- OSS_SIT_PRJ1955_CP7883_409994_409995_0006_Manually Create and Assign Ad_Hoc WO to Work Force
+¦   ¦       +-- OSS_SIT_PRJ1955_CP7883_409994_409995_0007_Associate an ad_hoc WO to an existing WO in Maximo
+¦   ¦       +-- OSS_SIT_PRJ1955_CP7883_409994_409995_0008_Move the ad_hoc WO from WAPPR to APPR
+¦   +-- f400318 Non Functional Requirements
+¦   ¦   +-- s410038 NFR - Asset Load Data Volumetrics - PSVT Regression Testing Only
+¦   ¦   +-- s410042 NFR - Generate PM Work Order Data Volumetrics - PSVT Regression Testing Only
+¦   +-- f400324 Security
+¦   ¦   +-- s410046 Configure Maintenance Administrator Security Group and Start Center
+¦   ¦   +-- s410047 Configure Works Program Manager Security Group and Start Center
+¦   ¦   +-- s410049 Configure Field Workforce and Management Staff Security Group and Start Center 
+¦   +-- f400326 Configure Reference Data
+¦       +-- s409996 Configure and Define Technician Crafts 
+¦       +-- s409998 View Loaded Job Plans (Task Definitions, Item Quantities, Craft and Quantities, Skills)
+¦       ¦   +-- OSS_SIT_PRJ1955_CP7883_409998_0030 NBN user can View Job plan record
+¦       +-- s410000 Configure and Define Item Master and Storerooms (Item / Part References) 
+¦       +-- s410003 Configure PCR Combinations 
+¦       +-- s410005 Configure Work Order Types 
+¦       +-- s410007 Configure Work Order Classifications and Specification Attributes
+¦       +-- s410009 Configure Delivery Plans 
+¦       +-- s410010 Configure Response Plans 
+¦       +-- s410062 Configure Asset Reference Data
+¦       +-- s410084 Configure PM Master 
+¦       +-- s410086 Configure Meters Reference Data
+¦       +-- s410088 Configure Asset Templates Reference Data
+¦       +-- s410089 Map of IPACT equipment and site attributes to WWM
+¦       ¦   +-- OSS_SIT_PRJ1955_CP7883_410089_425460_0018 WWM creates a Location in WWM to represent IPACT Site
+¦       ¦   +-- OSS_SIT_PRJ1955_CP7883_410089_425460_0019 WWM creates an Asset in WWM to represent IPACT Site
+¦       ¦   +-- OSS_SIT_PRJ1955_CP7883_410089_425460_0020 WWM creates an Asset in Maximo from IPACT Equipment data
+¦       +-- s411569 Configure Location Reference Data 
+¦       +-- s411787 Configure Address and Site Access Infomartion in the Location Application
+¦       +-- s412651 Configure Priority field in the PMs and Job Plans applications
+¦       +-- s418305 Manually Support a New Asset Model Type in WWM
++-- CP-7884 Group work orders
+¦   +-- f400273 Grouping of work orders for maintenance management
+¦       +-- s410011 Create Work Order Group
+¦           +-- OSS_SIT_PRJ1955_CP7883_410011_0021 Work Group ID field exists on the WO Tracking application
+¦           +-- OSS_SIT_PRJ1955_CP7883_410011_0022 Work Group ID field exists on Locations application
+¦           +-- OSS_SIT_PRJ1955_CP7883_410011_0023 Work Group ID is populated and editable when a WO is auto created
+¦           +-- OSS_SIT_PRJ1955_CP7883_410011_0024 WorkGroupID is populated and editable when a WO manually created
++-- CP-7886 History of work against an asset
+    +-- f400299 Manage work order outcomes
+    ¦   +-- s410013 Enter single or multiple PCR results on a Completed Work Order 
+    ¦   ¦   +-- OSS_SIT_PRJ1955_CP7886_410013_410015_2094 COMP WO w PCR at WO level that auto sets to Triage
+    ¦   ¦   +-- OSS_SIT_PRJ1955_CP7886_410013_410015_2095 COMP WO w PCR at WO level manually creates follow_on WO
+    ¦   ¦   +-- OSS_SIT_PRJ1955_CP7886_410013_410015_2096 COMP WO with a PCR which results in no action
+    ¦   ¦   +-- OSS_SIT_PRJ1955_CP7886_410013_410015_2097 COMP WO w one PCR no action, one PCR creates follow_on WO 
+    ¦   ¦   +-- OSS_SIT_PRJ1955_CP7886_410013_410015_2098 COMP WO w multi PCRs all of which sets the WO to Triage
+    ¦   ¦   +-- OSS_SIT_PRJ1955_CP7886_410013_410015_2106 COMP WO w PCR at WO Task level that auto sets to Triage
+    ¦   ¦   +-- OSS_SIT_PRJ1955_CP7886_410013_410015_2107 COMP WO w PCR at WO Task that creates followOn WO manually
+    ¦   +-- s410015 Automatically Create a Follow-on Work Order in Triage state based on PCR results
+    ¦       +-- OSS_SIT_PRJ1955_CP7886_410013_410015_2094 COMP WO w PCR at WO level that auto sets to Triage
+    ¦       +-- OSS_SIT_PRJ1955_CP7886_410013_410015_2095 COMP WO w PCR at WO level manually creates follow_on WO
+    ¦       +-- OSS_SIT_PRJ1955_CP7886_410013_410015_2096 COMP WO with a PCR which results in no action
+    ¦       +-- OSS_SIT_PRJ1955_CP7886_410013_410015_2097 COMP WO w one PCR no action, one PCR creates follow_on WO 
+    ¦       +-- OSS_SIT_PRJ1955_CP7886_410013_410015_2098 COMP WO w multi PCRs all of which sets the WO to Triage
+    ¦       +-- OSS_SIT_PRJ1955_CP7886_410013_410015_2106 COMP WO w PCR at WO Task level that auto sets to Triage
+    ¦       +-- OSS_SIT_PRJ1955_CP7886_410013_410015_2107 COMP WO w PCR at WO Task that creates followOn WO manually
+    +-- f400308 Manage work order completion & closure
+        +-- s410113 Automatically populate PM Last Done Date when WO is Completed
+        ¦   +-- OSS_SIT_PRJ1955_CP7883_410113_0009_LASTCOMPDATE is set on PM after WO has been set to COMP
+        ¦   +-- OSS_SIT_PRJ1955_CP7883_410113_0010_LASTCOMPDATE is updated on PM after WO has been set to COMP
+        ¦   +-- OSS_SIT_PRJ1955_CP7883_410113_0011_LASTCOMPDATE is not updated when WO is cancelled
+        ¦   +-- OSS_SIT_PRJ1955_CP7883_410113_0028 PM Next Due Date is not updated when WO is cancelled
+        +-- s410114 Enter Work Order Log information 
+        ¦   +-- OSS_SIT_PRJ1955_CP7886_410114_1019 View and create new worklog entrie for single WO
+        ¦   +-- OSS_SIT_PRJ1955_CP7886_410114_1020 view and create new worklog entrie for multiple WOs
+        +-- s410116 Automatically Close Work Orders
+            +-- OSS_SIT_PRJ1955_CP7886_410116_1021 PM WOs in CANCEL auto set to CLOSED after certain time
+            +-- OSS_SIT_PRJ1955_CP7886_410116_1022 CM WOs in CANCEL auto set to CLOSED after certain time
+            +-- OSS_SIT_PRJ1955_CP7886_410116_1023 PM WOs in COMP auto set to CLOSED after certain time
+            +-- OSS_SIT_PRJ1955_CP7886_410116_1024 CM WOs in COMP auto set to CLOSED after certain time
+            +-- OSS_SIT_PRJ1955_CP7886_410116_1025 NBN user cannot edit a PM or CM WO that is closed
+            +-- OSS_SIT_PRJ1955_CP7886_410116_1026 PM WO arent set to CLOSED when less than the defined interval 
+            +-- OSS_SIT_PRJ1955_CP7886_410116_1027 CM WO arent set to CLOSED when less than the defined interval
+            +-- OSS_SIT_PRJ1955_CP7886_410116_1030 CAN_INFLIGHT PM WOs automatically set to CLOSED after given time
+            +-- OSS_SIT_PRJ1955_CP7886_410116_1031 CAN_INFLIGHT CM WOs automatically set to CLOSED after given time
